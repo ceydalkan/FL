@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class MatchArray {
 	int length;
-	 int[][] matchArr;
+	int[][] matchArr;
 	
 MatchArray(){
 	 matchArr = new int[10][10];
