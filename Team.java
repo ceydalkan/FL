@@ -1,14 +1,13 @@
 public class Team {
     private String name;
-    private String abb;
+    private String abbreviation;
     private int point = 0;
     private int teamNumber;
 
-    Team(int teamNumber, String name, String abb) {
+    Team(int teamNumber, String name, String abbreviation) {
         this.teamNumber = teamNumber;
         this.name = name;
-        this.abb = abb;
-
+        this.abbreviation = abbreviation;
     }
 
     public void lostMatch() {
@@ -22,8 +21,8 @@ public class Team {
         this.point = point + 1;
     }
 
-    public String getAbb() {
-        return this.abb;
+    public String getAbbreviation() {
+        return this.abbreviation;
     }
 
     public String getName() {
@@ -34,21 +33,25 @@ public class Team {
         return this.point;
     }
 
-    public int getGoals(int[][] matchArr) {
+    public int getGoalsScored(int[][] matchResults) {
         int sum = 0;
         int i = this.teamNumber;
-        for (int j = 0; j < matchArr.length; j++) {
-            sum += matchArr[i - 1][j];
+
+        for (int j = 0; j < matchResults.length; j++) {
+            sum += matchResults[i - 1][j];
         }
+
         return sum;
     }
 
-    public int getKickedGoals(int[][] matchArr) {
+    public int getGoalsConceded(int[][] matchArr) {
         int sum = 0;
         int j = this.teamNumber;
+
         for (int i = 0; i < matchArr.length; i++) {
             sum += matchArr[i][j - 1];
         }
+
         return sum;
     }
 
