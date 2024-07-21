@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Test {
+public class FootballLeagueManager {
     public static void main(String[] args) {
         Team[] teams = new Team[10];
         int[][] matchResults = new int[10][10];
