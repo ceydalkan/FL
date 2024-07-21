@@ -63,7 +63,6 @@ public class Test {
     public static void calculatePoints(Team[] teams, int[][] matchResults) {
         for (int i = 0; i < teams.length; i++) {
             for (int j = 0; j < teams.length; j++) {
-
                 if (i != j) {
                     int homeGoals = matchResults[i][j];
                     int awayGoals = matchResults[j][i];
