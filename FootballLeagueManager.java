@@ -66,7 +66,6 @@ public class FootballLeagueManager {
                 if (i != j) {
                     int homeGoals = matchResults[i][j];
                     int awayGoals = matchResults[j][i];
-
                     if (homeGoals > awayGoals) {
                         teams[i].wonMatch();
                     } else if (homeGoals < awayGoals) {
@@ -87,7 +86,6 @@ public class FootballLeagueManager {
 
         for (int i = 0; i < teams.length; i++) {
             int goalDifference = teams[i].getGoalsScored(matchResults) - teams[i].getGoalsConceded(matchResults);
-
             if (teams[i].getPoint() > maxPoints
                     || (teams[i].getPoint() == maxPoints && goalDifference > bestGoalDifference)) {
                 champion = teams[i];
@@ -95,6 +93,7 @@ public class FootballLeagueManager {
                 bestGoalDifference = goalDifference;
             }
         }
+
         System.out.println("Champion is: " + champion.getName() + " with " + maxPoints
                 + " points and goal difference of " + bestGoalDifference);
     }

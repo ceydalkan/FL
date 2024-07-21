@@ -40,6 +40,7 @@ public class Team {
         for (int j = 0; j < matchResults.length; j++) {
             sum += matchResults[i - 1][j];
         }
+
         return sum;
     }
 
@@ -50,6 +51,7 @@ public class Team {
         for (int i = 0; i < matchArr.length; i++) {
             sum += matchArr[i][j - 1];
         }
+
         return sum;
     }
 
