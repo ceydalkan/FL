@@ -10,9 +10,6 @@ public class Team {
         this.abbreviation = abbreviation;
     }
 
-    public void lostMatch() {
-    }
-
     public void wonMatch() {
         this.point = point + 3;
     }
@@ -58,5 +55,4 @@ public class Team {
     public int getTeamNumber() {
         return this.teamNumber;
     }
-
 }

@@ -1,20 +1,22 @@
 import java.util.Random;
 
 public class FootballLeagueManager {
-    public static void main(String[] args) {
-        Team[] teams = new Team[10];
-        int[][] matchResults = new int[10][10];
+    static Team[] teams = new Team[10];
+    static int[][] matchResults = new int[10][10];
 
-        fillTeamArray(teams);
-        simulateMatches(matchResults);
-        calculatePoints(teams, matchResults);
-        displayTeams(teams);
-        displayMatchArr(matchResults);
-        displayPoints(teams);
-        announceChampion(teams, matchResults);
+    public static void main(String[] args) {
+        FootballLeagueManager manager = new FootballLeagueManager();
+
+        fillTeamArray();
+        manager.simulateMatches();
+        manager.calculatePoints();
+        manager.displayTeams();
+        manager.displayMatchResults();
+        manager.displayPoints();
+        manager.announceChampion();
     }
 
-    public static void fillTeamArray(Team[] teams) {
+    public static void fillTeamArray() {
         teams[0] = new Team(1, "galatasaray", "GS");
         teams[1] = new Team(2, "fenerbahce", "FB");
         teams[2] = new Team(3, "besiktas", "BJ");
@@ -27,7 +29,7 @@ public class FootballLeagueManager {
         teams[9] = new Team(10, "bursaspor", "BS");
     }
 
-    public static void simulateMatches(int[][] matchResults) {
+    public void simulateMatches() {
         Random r = new Random();
 
         for (int i = 0; i < matchResults.length; i++) {
@@ -38,16 +40,16 @@ public class FootballLeagueManager {
         }
     }
 
-    public static void displayMatchArr(int[][] matchArr) {
-        for (int i = 0; i < matchArr.length; i++) {
-            for (int j = 0; j < matchArr[i].length; j++) {
-                System.out.print(matchArr[i][j] + " ");
+    public void displayMatchResults() {
+        for (int i = 0; i < matchResults.length; i++) {
+            for (int j = 0; j < matchResults[i].length; j++) {
+                System.out.print(matchResults[i][j] + " ");
             }
             System.out.println();
         }
     }
 
-    public static void displayTeams(Team[] teams) {
+    public void displayTeams() {
         for (int i = 0; i < teams.length; i++) {
             System.out.println(
                     teams[i].getTeamNumber() + " " + teams[i].getName() + " " + teams[i].getAbbreviation() + " "
@@ -55,12 +57,12 @@ public class FootballLeagueManager {
         }
     }
 
-    public static void displayPoints(Team[] teams) {
+    public void displayPoints() {
         for (int i = 0; i < teams.length; i++)
             System.out.println(teams[i].getName() + " " + teams[i].getPoint());
     }
 
-    public static void calculatePoints(Team[] teams, int[][] matchResults) {
+    public void calculatePoints() {
         for (int i = 0; i < teams.length; i++) {
             for (int j = 0; j < teams.length; j++) {
                 if (i != j) {
@@ -79,7 +81,7 @@ public class FootballLeagueManager {
         }
     }
 
-    public static void announceChampion(Team[] teams, int[][] matchResults) {
+    public void announceChampion() {
         Team champion = null;
         int maxPoints = 0;
         int bestGoalDifference = 0;
