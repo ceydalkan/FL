@@ -5,15 +5,13 @@ public class FootballLeagueManager {
     static int[][] matchResults = new int[10][10];
 
     public static void main(String[] args) {
-        FootballLeagueManager manager = new FootballLeagueManager();
-
         fillTeamArray();
-        manager.simulateMatches();
-        manager.calculatePoints();
-        manager.displayTeams();
-        manager.displayMatchResults();
-        manager.displayPoints();
-        manager.announceChampion();
+        simulateMatches();
+        calculatePoints();
+        displayTeams();
+        displayMatchResults();
+        displayPoints();
+        announceChampion();
     }
 
     public static void fillTeamArray() {
@@ -29,7 +27,7 @@ public class FootballLeagueManager {
         teams[9] = new Team(10, "bursaspor", "BS");
     }
 
-    public void simulateMatches() {
+    public static void simulateMatches() {
         Random r = new Random();
 
         for (int i = 0; i < matchResults.length; i++) {
@@ -40,7 +38,7 @@ public class FootballLeagueManager {
         }
     }
 
-    public void displayMatchResults() {
+    public static void displayMatchResults() {
         for (int i = 0; i < matchResults.length; i++) {
             for (int j = 0; j < matchResults[i].length; j++) {
                 System.out.print(matchResults[i][j] + " ");
@@ -49,7 +47,7 @@ public class FootballLeagueManager {
         }
     }
 
-    public void displayTeams() {
+    public static void displayTeams() {
         for (int i = 0; i < teams.length; i++) {
             System.out.println(
                     teams[i].getTeamNumber() + " " + teams[i].getName() + " " + teams[i].getAbbreviation() + " "
@@ -57,12 +55,12 @@ public class FootballLeagueManager {
         }
     }
 
-    public void displayPoints() {
+    public static void displayPoints() {
         for (int i = 0; i < teams.length; i++)
             System.out.println(teams[i].getName() + " " + teams[i].getPoint());
     }
 
-    public void calculatePoints() {
+    public static void calculatePoints() {
         for (int i = 0; i < teams.length; i++) {
             for (int j = 0; j < teams.length; j++) {
                 if (i != j) {
@@ -81,7 +79,7 @@ public class FootballLeagueManager {
         }
     }
 
-    public void announceChampion() {
+    public static void announceChampion() {
         Team champion = null;
         int maxPoints = 0;
         int bestGoalDifference = 0;
